@@ -27,7 +27,37 @@ function submit() {
     `
   } else if (dropdown.value == "tutor") {
     console.log("bye");
-    // Insert Tutor HTML
+    document.getElementById("formthing").innerHTML = `
+    <p>Job Title (include your name)</p>
+    <input type = "text" id = "tutorPostTitle" name = "tutorPostTitle" placeholder="Title">
+    <br>
+    <br>
+    <p>Description (longer description of the services you offer, your qualifications)</p>
+    <textarea rows = "6" cols = "50" id = "tutorPostDescription" name = "tutorPostDescription" placeholder="Description"></textarea>
+    <br>
+    <br>
+    <p>What subject are you teaching?</p>
+    <select class="btn btn-primary" id = "tutorPostSubject" name = "tutorPostSubject">
+      <option value="English">English</option>
+      <option value="Science">Science</option>
+      <option value="Math">Math</option>
+      <option value="Social Studies">Social Studies</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="World Languages">World Language</option>
+    </select>
+    <br><br>
+    <p>Your Fee Per Hour</p>
+    <label>$ </label><input type = "text" id = "tutorPostFee" name = "tutorPostFee"><br>
+    <br>
+    <p>Your Email</p>
+    <input type = "text" id = "tutorPostEmail" name = "tutorPostEmail">
+    <br>
+    <br>
+
+    <p>Phone Number (optional)</p>
+    <input type = "text" id = "tutorPostPhone" name = "tutorPostPhone">
+    <button onclick="send_tutor()" class="btn btn-primary">Submit</button>
+    `
   } else if(dropdown.value == "supplies") {
     console.log("yes");
     // Insert Supplies HTML
@@ -45,5 +75,16 @@ function send_carpool() {
     var email = document.getElementById("carpoolPostEmail").value
     var phone = document.getElementById("carpoolPostPhone").value
     location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone
-    
+
+}
+
+function send_tutor() {
+  var type = dropdown.value
+  var title = document.getElementById('tutorPostTitle').value
+  var description = document.getElementById("tutorPostDescription").value
+  var fee = document.getElementById('tutorPostFee').value
+  var email = document.getElementById('tutorPostEmail').value
+  var phone = document.getElementById('tutorPostPhone').value
+  var subject = document.getElementById('tutorPostSubject').value
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&fee=" + fee + "&email=" + email + "&phone" + phone + "&subject" + subject
 }
