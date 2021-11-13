@@ -88,3 +88,11 @@ def getTutorPost():
     for i in tutoringPosts:
         if i["id"] == data:
             return jsonify(i)
+
+@app.route('/answerQuestions')
+def answerQuestions():
+    question = int(request.args["id"])
+    for i in discussionPosts:
+        print(question)
+        if i["id"] == question:
+            return render_template("answerQuestions.html", post = i)
