@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
       <!-- Brand/logo -->
       <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="logo" width="60px">
+        <img src="/static/logo.png" alt="logo" width="60px">
       </a>
 
       <!-- Links -->
@@ -34,22 +34,21 @@
         </li>
       </ul>
     </nav>
-    <div class="container-fluid bg-light" style="height: calc(50vh - 40px)">
+    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: auto">
         <br>
         <h1 class="ml-2 container-fluid">Discussion</h1>
         <div class="container-fluid mt-5 w-100 p-3" id="discussion">
             <div class="row">
+                {% for post in discussionPosts %}
                 <div class="col-3 card p-3 post m-2">
-                    <div class="card-header">What time does basketball end?</div>
+                    <div class="card-header">{{post["header"]}}</div>
                     <div class="card-body">
-                        posted by <b>Sarthak Lodha</b> 3 hrs ago
+                        posted by <b>{{post["author"]}}</b>
                         <br>
                         <a href="#">reply</a>
                     </div>
                 </div>
-                <div class="col-3 card p-3 post m-2"></div>
-                <div class="col-3 card p-3 post m-2"></div>
-                <div class="col-3 card p-3 post m-2"></div>
+                {% endfor %}
             </div>
         </div>
     </div>
