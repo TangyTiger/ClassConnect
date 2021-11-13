@@ -131,18 +131,20 @@ function send_question() {
   location.href = "/subimtpost?type=" + type + "&title=" + title + "&description=" + description
 }
 
- function viewIndivialTutorPosts(data) {
-   $.get({url: "/getTutorPost", data: data}, function(data, status){
-     window.Title = data.title
-     window.Subject = data.subject
-     window.Description = data.description
-     window.Fee = data.fee
-     window.Email = data.email
-     window.Phone = data.phone
-
-
- })
+ function viewTutorPost(data) {
+   $.get({
+     url: "/getTutorPost",
+     data: {id: data},
+     success: function(data, status){
+         window.Title = data.title
+         window.Subject = data.subject
+         window.Description = data.description
+         window.Fee = data.fee
+         window.Email = data.email
+         window.Phone = data.phone
+     }
+   })
    document.getElementById("info").innerHTML = `
    <h1>` + data.title + `</h1>
-  `
+   `
  }

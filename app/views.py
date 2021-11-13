@@ -1,11 +1,11 @@
 from app import app
 from flask import request, session, jsonify, render_template, redirect
 
-discussionPosts = [{"header": " who r u", "author": "Sarthak Lodha", "id": 1}]
-schoolSupplyPosts = [{"header": "Need screwdriver", "author": "Aditya Shah"}]
+discussionPosts = [{"title": " who r u", "name": "Sarthak Lodha", "id": 1}]
+schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah", "id": 2}]
 carpoolPosts = []
-tutoringPosts = [{"title": "Math Help"}, {"title": "Science Help"}]
-preid = 1
+tutoringPosts = [{"title": "Math Help", "id": 3}, {"title": "Science Help", "id": 4}]
+preid = 4
 
 
 @app.route('/post', methods=['GET'])
@@ -83,5 +83,8 @@ def viewtutorslist():
 
 @app.route('/getTutorPost')
 def getTutorPost():
-    data = request.data
-    for i in
+    data = request.form
+    print(data)
+    for i in tutoringPosts:
+        if i["id"] == data:
+            return jsonify(i)
