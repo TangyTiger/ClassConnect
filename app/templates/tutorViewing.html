@@ -11,23 +11,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="/static/scripts.js"></script>
     <style>
-      #column1 {
-        width: 20%;
-        background: blue
-
+      #column1, #contactInfo {
+        background: lightgrey;
+        border-right: 2px solid grey;
+        border-left: 2px solid grey;
+        height: calc(100vh - 80px);
       }
       #column2 {
-        width : 60%;
-        background: grey;
       }
-      #contactInfo {
-        width = 305
-        background: green;
-      }
-      $
     </style>
 </head>
-<body>
+<body class="p-0">
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
       <!-- Brand/logo -->
       <a class="navbar-brand" href="/home">
@@ -49,17 +43,19 @@
         </li>
       </ul>
     </nav>
-  <div id = "column1" style = "overflow: auto">
+  <div class="row w-100 m-0">
+  <div id = "column1" class="col-2" style = "overflow: auto">
     {% for post in tutorPosts%}
     <div class = "tutorPosts" id="{{post.id}}" onclick = "viewTutorPost(this.id)">
       {{post["title"]}}
-  </div>
+    </div>
     {% endfor%}
   </div>
-  <div id = "column2" style = "overflow: auto">
+  <div class="col-8" id = "column2" style = "overflow: auto">
 
   </div>
-  <div id = "contactInfo" style = "overflow: auto">
+  <div class="col-2" id = "contactInfo" style = "overflow: auto">
 
   </div>
-  </body>
+  </div>
+</body>
