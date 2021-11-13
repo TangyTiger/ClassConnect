@@ -60,7 +60,7 @@ def submitpost():
         post["phone"] = form.get("phone")
         post["email"] = form.get("email")
         post['lat'] = form.get['lat']
-        post['lng'] = form.get['lng']
+        post['lng'] = form.get['lng' ]
         carpoolPosts.append(post)
         print(carpoolPosts)
     if post["type"] == "tutor":
@@ -124,6 +124,11 @@ def answerQuestions():
 @app.route('/viewAllDiscussions')
 def viewAllDiscussion():
     return render_template("viewAllDiscussions.html", discussionPosts = discussionPosts)
+
+
+@app.route('/viewAllSupplies')
+def viewAllSupplies():
+    return render_template("viewAllSupplies.html", supplies = schoolSupplyPosts)
 
 @app.route('/supplyRespond')
 def supplyRespond():
