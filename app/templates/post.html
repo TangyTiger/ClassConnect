@@ -11,7 +11,7 @@
 
     <title>Post Something</title>
   </head>
-  <body>
+  <body class="bg-light">
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
       <!-- Brand/logo -->
       <a class="navbar-brand" href="/home">
@@ -33,16 +33,17 @@
         </li>
       </ul>
     </nav>
-    <select class="" name="type" id="dropdown">
+<div class="container-fluid bg-light p-3">    <select class="btn btn-primary" name="type" id="dropdown">
       <option value="carpool">Offer a Carpool</option>
       <option value="tutor">Offer Tutoring</option>
       <option value="supplies">Ask for Supplies</option>
       <option value="question">Ask a Question</option>
     </select>
-    <button type="button" name="button" onclick="submit()">Continue</button>
+    <button type="button" name="button" class="btn btn-success" onclick="submit()">Continue</button>
     <br><br><br>
     <div class="" id='formthing'>
 
     </div>
+</div>
   </body>
 </html>
