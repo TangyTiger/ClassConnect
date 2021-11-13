@@ -109,7 +109,6 @@ def getTutorPost():
 @app.route('/getCarpoolPost')
 def getCarpoolPost():
     data = int(request.args.get("id"))
-    print(data)
     for i in carpoolPosts:
         if i["id"] == data:
             return jsonify(i)
@@ -125,3 +124,10 @@ def answerQuestions():
 @app.route('/viewAllDiscussions')
 def viewAllDiscussion():
     return render_template("viewAllDiscussions.html", discussionPosts = discussionPosts)
+
+@app.route('/supplyRespond')
+def supplyRespond():
+    supply = int(request.args.get("id"))
+    for i in schoolSupplyPosts:
+        if i["id"] == supply:
+            return render_template("supplyRespond.html", post = i)
