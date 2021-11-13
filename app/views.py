@@ -1,10 +1,10 @@
 from app import app
 from flask import request, session, jsonify, render_template
 
-discussionPosts = [{"header": " who r u", "author": "Sarthak Lodha"}]
+discussionPosts = [{"header": " who r u", "author": "Sarthak Lodha", "id": 1}]
 schoolSupplyPosts = [{"header": "Need screwdriver", "author": "Aditya Shah"}]
 carpoolPosts = []
-tutoringPosts = []
+tutoringPosts = [{"title": "Math Help"}, {"title": "Science Help"}]
 
 
 @app.route('/post', methods=['GET'])
@@ -58,3 +58,12 @@ def viewTutors():
 @app.route('/viewCarpoolSubjects')
 def viewCarpools():
     return render_template("viewCarpoolSubjects.html")
+
+@app.route('/tutorViewing')
+def viewTutorsList():
+     subject = request.args.get("subject")
+     filteredSubjects = []
+     for i in tutoringPosts:
+         filteredSubjects.append(i)
+
+     return render_template("tutorViewing.html", tutorPosts = filteredSubjects)
