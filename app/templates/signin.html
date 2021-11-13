@@ -9,14 +9,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
-  <body>
+  <body style="text-align: center">
+  <div class="container-fluid w-100 h-100 bg-info">
+  <div class="container-fluid text-light bg-info p-2" style="text-align: center">
     <h1>Welcome to School Service</h1>
-  <form action="/home.html">
-  <label for="email">Email:</label><br>
-  <input type = "text" id = "email" name = "lname" placeholder="jdoe@lwsd.org"><br>
-  <label for="password">Password:</label><br>
-  <input type = "password" id = "password" name = "password" placeholder="password"><br>
-  <input type="submit" value="Submit">
+  </div>
+    <br>
+    <br>
+  <div class="container bg-light w-50 h-50 p-4" style="text-align: center; border-radius: 25px">
+    <form action="/home" class="w-50 m-auto" style="text-align: center;">
+      <label for="email">Email:</label><br>
+      <input type = "text" id="email" name="lname" placeholder="jdoe@lwsd.org"><br>
+      <br>
+      <label for="password">Password:</label><br>
+      <input type = "password" id = "password" name = "password" placeholder="password"><br>
+      <br>
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+  </div>
+  </div>
 
 
 </form>
