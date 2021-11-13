@@ -28,7 +28,7 @@ function submit() {
   } else if (dropdown.value == "tutor") {
     console.log("bye");
     document.getElementById("formthing").innerHTML = `
-    <p>Job Title</p>
+    <p>Job Title (include your name)</p>
     <input type = "text" id = "tutorPostTitle" name = "tutorPostTitle" placeholder="Title">
     <br>
     <br>
@@ -45,9 +45,6 @@ function submit() {
       <option value="Computer Science">Computer Science</option>
       <option value="World Languages">World Language</option>
     </select>
-    <br><br>
-    <p>Your Name</p>
-    <input type="text" id="supplyPostName" name="supplyPostName">
     <br><br>
     <p>Your Fee Per Hour</p>
     <label>$ </label><input type = "text" id = "tutorPostFee" name = "tutorPostFee"><br>
@@ -72,10 +69,6 @@ function submit() {
     <textarea rows="6" cols="50" id="supplyPostDescription" name="supplyPostDescription"></textarea>
     <br>
     <br>
-    <p>Your Name</p>
-    <input type="text" id="supplyPostName" name="supplyPostName">
-    <br>
-    <br>
     <p>Your Email</p>
     <input type="text" id="supplyPostEmail" name="supplyPostEmail" >
     <br>
@@ -84,7 +77,7 @@ function submit() {
     <input type="text" id="supplyPostPhone" name="supplyPostPhone">
     <button onclick="send_supply()" class="btn btn-primary">Submit</button>
     `
-  } else if(dropdown.value == "discussion") {
+  } else if(dropdown.value == "question") {
     console.log("no");
     document.getElementById("formthing").innerHTML = `
     <p>Post Title (summarize your question)</p>
@@ -95,9 +88,7 @@ function submit() {
     <textarea rows="6" cols="50" id="questionPostDescription" name="questionPostDescription"></textarea>
     <br>
     <br>
-    <p>Your Name</p>
-    <input type="text" id="supplyPostName" name="supplyPostName">
-    <button onclick="send_question()" class="btn btn-primary">Submit</button>
+    <button onclick="send_supply()" class="btn btn-primary">Submit</button>
     `
   }
 }
@@ -130,14 +121,28 @@ function send_supply() {
   var description = document.getElementById("supplyPostDescription").value
   var email = document.getElementById('supplyPostEmail').value
   var phone = document.getElementById('supplyPostPhone').value
-  var name = document.getElementById("supplyPostName").value
-  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&email=" + email + "&phone=" + phone +"&name=" + name
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&email=" + email + "&phone=" + phone
 }
 
 function send_question() {
   var type = dropdown.value
   var title = document.getElementById("questionPostTitle").value
   var description = document.getElementById('questionPostDescription').value
-  var name = document.getElementById('id')
-  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + '&name=' + name
+  location.href = "/subimtpost?type=" + type + "&title=" + title + "&description=" + description
 }
+
+ function viewIndivialTutorPosts(data) {
+   $.get({url: "/getTutorPost", data: data}, function(data, status){
+     window.Title = data.title
+     window.Subject = data.subject
+     window.Description = data.description
+     window.Fee = data.fee
+     window.Email = data.email
+     window.Phone = data.phone
+
+
+ })
+   document.getElementById("info").innerHTML = `
+   <h1>` + data.title + `</h1>
+  `
+ }
