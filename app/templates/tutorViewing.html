@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+
     <title>View Tutors</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,16 +11,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
       #column1 {
-        width: 30%;
+        width: 20%;
+        background: blue
 
       }
     </style>
 </head>
 <body>
-  <div style = "overflow: auto">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="/home">
+        <img src="/static/logo.png" alt="logo" width="60px">
+      </a>
+
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#">Find a Tutor</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">Find a Carpool</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto mr-4">
+        <li class="nav-item">
+          <a class="nav-link" href="/post"><b>Post</b></a>
+        </li>
+      </ul>
+    </nav>
+  <div id = "column1" style = "overflow: auto">
     {% for post in tutorPosts%}
-    <div class = "tutorPosts">
+    <div class = "tutorPosts" id="{{post.id}}" onclick = "viewIndividualTutorPosts(this.id)">
       {{post["title"]}}
-    </div>
+  </div>
     {% endfor%}
+  </div>
+  <div id = "info" style = "overflow: auto">
+
+  </div>
   </body>
