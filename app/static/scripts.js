@@ -86,5 +86,5 @@ function send_tutor() {
   var email = document.getElementById('tutorPostEmail').value
   var phone = document.getElementById('tutorPostPhone').value
   var subject = document.getElementById('tutorPostSubject').value
-  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&fee=" + fee + "&email=" + email + "&phone" + phone + "&subject" + subject
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&fee=" + fee + "&email=" + email + "&phone=" + phone + "&subject=   " + subject
 }

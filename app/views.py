@@ -1,11 +1,10 @@
 from app import app
-from flask import request, session, jsonify, render_template
+from flask import request, session, jsonify, render_template, redirect
 
 discussionPosts = [{"header": " who r u", "author": "Sarthak Lodha"}]
 schoolSupplyPosts = [{"header": "Need screwdriver", "author": "Aditya Shah"}]
 carpoolPosts = []
 tutoringPosts = []
-
 
 @app.route('/post', methods=['GET'])
 def postpg():
@@ -32,7 +31,6 @@ def homepg():
 def submitpost():
     form = request.args
     post = {
-        "author": form.get('name'),
         "description": form.get('description'),
         "phone": form.get('phone'),
         "email": form.get('email'),
@@ -40,16 +38,20 @@ def submitpost():
         "type": form.get("type")
     }
     if post["type"] == "carpool":
+        post["name"] = form.get("name")
         carpoolPosts.append(post)
+        print(carpoolPosts)
     if post["type"] == "tutor":
+        post["fee"] = form.get("fee")
+        post["subject"] = form.get("subject")
         tutoringPosts.append(post)
+        print(tutoringPosts)
     if post["type"] == "supplies":
         schoolSupplyPosts.append(post)
     if post["type"] == "discussion":
         discussionPosts.append(post)
-    print(carpoolPosts)
     print(post)
-    return "Success"
+    return redirect("/home")
 
 @app.route('/viewTutorsSubjects')
 def viewTutors():
