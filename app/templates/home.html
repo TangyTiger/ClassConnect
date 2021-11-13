@@ -9,7 +9,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-
+    #discussion{
+      border-bottom: 2px solid darkgrey
+    }
+    #supplies{
+      border-bottom: 2px
+    }
     </style>
 </head>
 <body>
@@ -34,13 +39,13 @@
         </li>
       </ul>
     </nav>
-    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: auto">
+    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: hidden">
         <br>
-        <h1 class="ml-2 container-fluid">Discussion</h1>
-        <div class="container-fluid mt-5 w-100 p-3" id="discussion">
+        <h1 class="ml-2 container-fluid">Discussion <a href = "/viewAllDiscussions"class = "btn btn-primary">View all</a></h1>
+        <div class="container-fluid mt-3 w-100 p-3" id="discussion">
             <div class="row">
                 {% for post in discussionPosts %}
-                <div class="col-3 card p-3 post m-2">
+                <div class="col-3 card p-3 post mt-1 mx-2">
                     <div class="card-header">{{post["title"]}}</div>
                     <div class="card-body">
                         posted by <b>{{post["name"]}}</b>
@@ -50,13 +55,12 @@
                 </div>
                 {% endfor %}
             </div>
-            <a href = "/viewAllDiscussions" class = "btn btn-primary">View all</a>
         </div>
     </div>
-    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: auto">
+    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: hidden">
         <br>
-        <h1 class="ml-2 container-fluid">Borrow Supplies</h1>
-        <div class="container-fluid mt-5 w-100 p-3" id="supplies">
+        <h1 class="ml-2 container-fluid">Borrow Supplies <a href = "#"class = "btn btn-primary">View all</a></h1>
+        <div class="container-fluid mt-3 w-100 p-3" id="supplies">
             <div class="row">
                 {% for post in supplyPosts %}
                 <div class="col-3 card p-3 post m-2">

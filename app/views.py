@@ -1,7 +1,7 @@
 from app import app
 from flask import request, session, jsonify, render_template, redirect
 
-discussionPosts = [{"title": " who r u", "name": "Sarthak Lodha", "id": 1}]
+discussionPosts = [{"title": " who r u", "name": "Sarthak Lodha", "id": 1},{"title": " test num 2", "name": "aditya shah", "id": 2},{"title": "test number 3", "name": "Sarthak Lodha", "id": 1},{"title": " who r u", "name": "Sarthak Lodha", "id": 4}]
 schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah", "id": 2}]
 carpoolPosts = []
 tutoringPosts = [
@@ -119,3 +119,7 @@ def answerQuestions():
         print(question)
         if i["id"] == question:
             return render_template("answerQuestions.html", post=i)
+
+@app.route('/viewAllDiscussions')
+def viewAllDiscussion():
+    return render_template("viewAllDiscussions.html", discussionPosts = discussionPosts)
