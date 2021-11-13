@@ -53,3 +53,7 @@ def submitpost():
 @app.route('/viewTutorsSubjects')
 def viewTutors():
     return render_template("viewTutorsSubjects.html")
+
+@app.route('/viewCarpoolSubjects')
+def viewCarpools():
+    return render_template("viewCarpoolSubjects.html")
