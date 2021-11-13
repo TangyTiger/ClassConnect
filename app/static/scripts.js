@@ -27,7 +27,7 @@ function submit() {
     <input type = "text" id = "carpoolPostTitle" name = "carpoolPostTitle" placeholder="Title">
     <br>
     <br>
-    <p>Description (longer description about the carpool)</p>
+    <p>Description (longer description about the carpool, include timings and special notes)</p>
     <textarea rows = "6" cols = "50" id = "carpoolPostDescription" name = "carpoolPostDescription" placeholder="Description"></textarea>
     <br>
     <br>
