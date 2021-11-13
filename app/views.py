@@ -6,6 +6,7 @@ schoolSupplyPosts = [{"header": "Need screwdriver", "author": "Aditya Shah"}]
 carpoolPosts = []
 tutoringPosts = [{"title": "Math Help"}, {"title": "Science Help"}]
 
+
 @app.route('/post', methods=['GET'])
 def postpg():
     return render_template('post.html')
@@ -26,46 +27,51 @@ def homepg():
     return render_template('home.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
 
 
-
 @app.route('/submitpost')
 def submitpost():
     form = request.args
     post = {
         "description": form.get('description'),
-        "phone": form.get('phone'),
-        "email": form.get('email'),
         "title": form.get("title"),
         "type": form.get("type")
     }
     if post["type"] == "carpool":
         post["name"] = form.get("name")
+        post["phone"] = form.get("phone")
+        post["email"] = form.get("email")
         carpoolPosts.append(post)
         print(carpoolPosts)
     if post["type"] == "tutor":
+        post["email"] = form.get("email")
         post["fee"] = form.get("fee")
         post["subject"] = form.get("subject")
+        post["phone"] = form.get("phone")
         tutoringPosts.append(post)
         print(tutoringPosts)
     if post["type"] == "supplies":
+        post["email"] = form.get("email")
+        post["phone"] = form.get("phone")
         schoolSupplyPosts.append(post)
     if post["type"] == "discussion":
         discussionPosts.append(post)
     print(post)
     return redirect("/home")
 
+
 @app.route('/viewTutorsSubjects')
-def viewTutors():
+def viewtutors():
     return render_template("viewTutorsSubjects.html")
 
+
 @app.route('/viewCarpoolSubjects')
-def viewCarpools():
+def viewcarpools():
     return render_template("viewCarpoolSubjects.html")
 
-@app.route('/tutorViewing')
-def viewTutorsList():
-     subject = request.args.get("subject")
-     filteredSubjects = []
-     for i in tutoringPosts:
-         filteredSubjects.append(i)
 
-     return render_template("tutorViewing.html", tutorPosts = filteredSubjects)
+@app.route('/tutorViewing')
+def viewtutorslist():
+    subject = request.args.get("subject")
+    filteredSubjects = []
+    for i in tutoringPosts:
+        filteredSubjects.append(i)
+    return render_template("tutorViewing.html", tutorPosts=filteredSubjects)
