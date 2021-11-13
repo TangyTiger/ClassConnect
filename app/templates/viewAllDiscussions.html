@@ -10,7 +10,8 @@
 
 <style>
   .post{
-    display : inline-block
+    display : inline-block;
+    width: 20%;
   }
   </style>
     <title>Answer Questions</title>
@@ -38,9 +39,9 @@
         </ul>
       </nav>
 
-      <div>
+      <div style = 'text-align: center'>
           {% for post in discussionPosts %}
-          <div class="col-3 card p-3 post m-2">
+          <div class="col-3 card p-3 post m-4">
               <div class="card-header">{{post["title"]}}</div>
               <div class="card-body">
                   posted by <b>{{post["name"]}}</b>
