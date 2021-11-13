@@ -39,3 +39,7 @@ def submitpost():
         "type": form.get("type")
     }
     print(post)
+
+@app.route('/viewTutorsSubjects')
+def viewTutors():
+    return render_template("viewTutorsSubjects.html")
