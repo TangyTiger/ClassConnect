@@ -1,11 +1,11 @@
 
 
 function submit() {
-  var dropdown = document.getElementById('dropdown');
+  window.dropdown = document.getElementById('dropdown');
   if (dropdown.value == "carpool") {
     console.log("hi");
     document.getElementById("formthing").innerHTML = `
-    <p>Title (a few words describing the carpool)</p>
+    <p>Title (include the destination)</p>
     <input type = "text" id = "carpoolPostTitle" name = "carpoolPostTitle" placeholder="Title">
     <br>
     <br>
@@ -23,6 +23,7 @@ function submit() {
 
     <p>Phone Number (optional)</p>
     <input type = "text" id = "carpoolPostPhone" name = "carpoolPostPhone">
+    <button onclick="send_carpool()" class="btn btn-primary">Submit</button>
     `
   } else if (dropdown.value == "tutor") {
     console.log("bye");
@@ -36,3 +37,13 @@ function submit() {
   }
 }
 
+function send_carpool() {
+    var type = dropdown.value
+    var title = document.getElementById("carpoolPostTitle").value
+    var description = document.getElementById("carpoolPostDescription").value
+    var name = document.getElementById("carpoolPostName").value
+    var email = document.getElementById("carpoolPostEmail").value
+    var phone = document.getElementById("carpoolPostPhone").value
+    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone
+    
+}
