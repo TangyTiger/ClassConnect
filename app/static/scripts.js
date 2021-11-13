@@ -15,5 +15,3 @@ function submit() {
     console.log("no");
     //Insert question HTML
   }
-
-WS
