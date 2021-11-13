@@ -5,6 +5,7 @@ discussionPosts = [{"header": " who r u", "author": "Sarthak Lodha", "id": 1}]
 schoolSupplyPosts = [{"header": "Need screwdriver", "author": "Aditya Shah"}]
 carpoolPosts = []
 tutoringPosts = [{"title": "Math Help"}, {"title": "Science Help"}]
+preid = 1
 
 
 @app.route('/post', methods=['GET'])
@@ -29,11 +30,15 @@ def homepg():
 
 @app.route('/submitpost')
 def submitpost():
+    global preid
+    preid += 1
     form = request.args
     post = {
         "description": form.get('description'),
         "title": form.get("title"),
-        "type": form.get("type")
+        "type": form.get("type"),
+        "name": form.get("name"),
+        "id": preid
     }
     if post["type"] == "carpool":
         post["name"] = form.get("name")
@@ -79,4 +84,4 @@ def viewtutorslist():
 @app.route('/getTutorPost')
 def getTutorPost():
     data = request.data
-    for i in 
+    for i in
