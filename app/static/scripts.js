@@ -4,7 +4,10 @@ function submit() {
   var dropdown = document.getElementById('dropdown');
   if (dropdown.value == "carpool") {
     console.log("hi");
-    // Insert Carpool HTML
+    document.getElementById("formthing").innerHTML = `
+    <input type = "text" id = "carpoolPostTitle" name = "carpoolPostTitle" placeholder="title"><br>
+    <input type = "text" id = "carpoolPostDescription" name = "carpoolPostDescription" placeholder="title"><br>
+
   } else if (dropdown.value == "tutor") {
     console.log("bye");
     // Insert Tutor HTML
