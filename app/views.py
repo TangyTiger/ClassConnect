@@ -38,7 +38,17 @@ def submitpost():
         "title": form.get("title"),
         "type": form.get("type")
     }
+    if post["type"] == "carpool":
+        carpoolPosts.append(post)
+    if post["type"] == "tutor":
+        tutoringPosts.append(post)
+    if post["type"] == "supplies":
+        schoolSupplyPosts.append(post)
+    if post["type"] == "discussion":
+        discussionPosts.append(post)
+    print(carpoolPosts)
     print(post)
+    return "Success"
 
 @app.route('/viewTutorsSubjects')
 def viewTutors():
