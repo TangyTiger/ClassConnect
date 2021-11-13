@@ -133,18 +133,20 @@ function send_question() {
 
  function viewTutorPost(data) {
    $.get({
-     url: "/getTutorPost",
-     data: {id: data},
+     url: "/getTutorPost?id=" + data,
      success: function(data, status){
-         window.Title = data.title
-         window.Subject = data.subject
-         window.Description = data.description
-         window.Fee = data.fee
-         window.Email = data.email
-         window.Phone = data.phone
+         window._title = data.title
+         window._subject = data.subject
+         window._description = data.description
+         window._fee = data.fee
+         window._email = data.email
+         window._phone = data.phone
+         console.log(window._title)
+         document.getElementById("column2").innerHTML = `
+         <h1>` + window._title + `</h1>
+         <br>
+         <p>` + window._description + `
+         `
      }
    })
-   document.getElementById("info").innerHTML = `
-   <h1>` + data.title + `</h1>
-   `
  }

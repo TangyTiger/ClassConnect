@@ -4,7 +4,7 @@ from flask import request, session, jsonify, render_template, redirect
 discussionPosts = [{"title": " who r u", "name": "Sarthak Lodha", "id": 1}]
 schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah", "id": 2}]
 carpoolPosts = []
-tutoringPosts = [{"title": "Math Help", "id": 3}, {"title": "Science Help", "id": 4}]
+tutoringPosts = [{"title": "Math Help", "description": "some stuff here", "id": 3}, {"title": "Science Help", "description": "a description", "id": 4}]
 preid = 4
 
 
@@ -83,9 +83,17 @@ def viewtutorslist():
 
 @app.route('/getTutorPost')
 def getTutorPost():
-    data = request.form
+    data = int(request.args.get("id"))
     print(data)
     for i in tutoringPosts:
+        if i["id"] == data:
+            return jsonify(i)
+
+@app.route('/getCarpoolPost')
+def getCarpoolPost():
+    data = int(request.args.get("id"))
+    print(data)
+    for i in carpoolPosts:
         if i["id"] == data:
             return jsonify(i)
 
@@ -95,4 +103,4 @@ def answerQuestions():
     for i in discussionPosts:
         print(question)
         if i["id"] == question:
-            return render_template("answerQuestions.html", post = i)
+            return render_template("answerQuestions.html", post=i)
