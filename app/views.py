@@ -2,7 +2,7 @@ from app import app
 from flask import request, session, jsonify, render_template
 
 discussionPosts = [{"header": " who r u", "author": "Sarthak Lodha"}]
-schoolSupplyPosts = []
+schoolSupplyPosts = [{"header": "Need screwdriver", "author": "Aditya Shah"}]
 carpoolPosts = []
 tutoringPosts = []
 
@@ -24,7 +24,8 @@ def signinpg():
 
 @app.route('/home', methods=['GET'])
 def homepg():
-    return render_template('home.html', discussionPosts=discussionPosts)
+    return render_template('home.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
+
 
 
 @app.route('/submitpost')

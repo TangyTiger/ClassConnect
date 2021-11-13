@@ -52,5 +52,23 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: auto">
+        <br>
+        <h1 class="ml-2 container-fluid">Borrow Supplies</h1>
+        <div class="container-fluid mt-5 w-100 p-3" id="supplies">
+            <div class="row">
+                {% for post in supplyPosts %}
+                <div class="col-3 card p-3 post m-2">
+                    <div class="card-header">{{post["header"]}}</div>
+                    <div class="card-body">
+                        posted by <b>{{post["author"]}}</b>
+                        <br>
+                        <a href="#">reply</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
