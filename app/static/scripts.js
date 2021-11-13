@@ -1,5 +1,23 @@
-
-
+var marker
+var marked
+var mymap
+var lat
+var lng
+function onMapClick(e) {
+  if (marked) {
+    mymap.removeLayer(marker)
+  }
+  marked = true
+  marker = new L.circle(e.latlng, {
+    color: 'red',
+    fill: 'f03',
+    fillOpacity: 0.4,
+    radius: 1300
+  }).addTo(mymap);
+  var loc = e.latlng
+  lat = loc.lat
+  lng = loc.lng
+}
 function submit() {
   window.dropdown = document.getElementById('dropdown');
   if (dropdown.value == "carpool") {
@@ -13,6 +31,8 @@ function submit() {
     <textarea rows = "6" cols = "50" id = "carpoolPostDescription" name = "carpoolPostDescription" placeholder="Description"></textarea>
     <br>
     <br>
+    <p>Your Pickup Range (click on your general area)</p>
+    <div id="map" style="height:300px; width:300px"></div>
     <p>Your Name</p>
     <input type = "text" id = "carpoolPostName" name = "carpoolPostName"><br>
     <br>
@@ -20,11 +40,19 @@ function submit() {
     <input type = "text" id = "carpoolPostEmail" name = "carpoolPostEmail">
     <br>
     <br>
-
     <p>Phone Number (optional)</p>
     <input type = "text" id = "carpoolPostPhone" name = "carpoolPostPhone">
-    <button onclick="send_carpool()" class="btn btn-primary">Submit</button>
-    `
+    <button onclick="send_carpool()" class="btn btn-primary">Submit</button>    `
+    mymap = L.map('map').setView([47.61341768915884, -122.03149390175979], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'sk.eyJ1Ijoid2F3YXRoZWdvYXQiLCJhIjoiY2t2eTYyZDB1NHNhMjJ1bXRibTZkNnMydCJ9.Mbejydp89fA2EdHm1BQoUA'
+    }).addTo(mymap);
+    mymap.on('click', onMapClick);
   } else if (dropdown.value == "tutor") {
     console.log("bye");
     document.getElementById("formthing").innerHTML = `
@@ -100,7 +128,7 @@ function send_carpool() {
     var name = document.getElementById("carpoolPostName").value
     var email = document.getElementById("carpoolPostEmail").value
     var phone = document.getElementById("carpoolPostPhone").value
-    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone
+    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone + "&lat=" + lat + "&lng" + lng
 
 }
 
