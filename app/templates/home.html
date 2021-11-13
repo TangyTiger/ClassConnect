@@ -41,9 +41,9 @@
             <div class="row">
                 {% for post in discussionPosts %}
                 <div class="col-3 card p-3 post m-2">
-                    <div class="card-header">{{post["header"]}}</div>
+                    <div class="card-header">{{post["title"]}}</div>
                     <div class="card-body">
-                        posted by <b>{{post["author"]}}</b>
+                        posted by <b>{{post["name"]}}</b>
                         <br>
                         <a id = "{{post['id']}}" href="#">reply</a>
                     </div>
@@ -59,9 +59,9 @@
             <div class="row">
                 {% for post in supplyPosts %}
                 <div class="col-3 card p-3 post m-2">
-                    <div class="card-header">{{post["header"]}}</div>
+                    <div class="card-header">{{post["title"]}}</div>
                     <div class="card-body">
-                        posted by <b>{{post["author"]}}</b>
+                        posted by <b>{{post["name"]}}</b>
                         <br>
                         <a href="#">reply</a>
                     </div>

@@ -1,8 +1,8 @@
 from app import app
 from flask import request, session, jsonify, render_template, redirect
 
-discussionPosts = [{"header": " who r u", "author": "Sarthak Lodha", "id": 1}]
-schoolSupplyPosts = [{"header": "Need screwdriver", "author": "Aditya Shah"}]
+discussionPosts = [{"title": " who r u", "name": "Sarthak Lodha", "id": 1}]
+schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah"}]
 carpoolPosts = []
 tutoringPosts = [{"title": "Math Help"}, {"title": "Science Help"}]
 
@@ -33,7 +33,8 @@ def submitpost():
     post = {
         "description": form.get('description'),
         "title": form.get("title"),
-        "type": form.get("type")
+        "type": form.get("type"),
+        "name": form.get("name")
     }
     if post["type"] == "carpool":
         post["name"] = form.get("name")
