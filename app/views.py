@@ -14,6 +14,10 @@ def postpg():
 def signuppg():
     return render_template('signup.html')
 
+@app.route('/signin', methods=['GET'])
+def signinpg():
+    return render_template('signin.html')
+
 @app.route('/home', methods=['GET'])
 def homepg():
     return render_template('home.html', discussionPosts=discussionPosts)
