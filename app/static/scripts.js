@@ -60,10 +60,36 @@ function submit() {
     `
   } else if(dropdown.value == "supplies") {
     console.log("yes");
-    // Insert Supplies HTML
+    document.getElementById("formthing").innerHTML = `
+    <p>Post Title (what supplies do you need?)</p>
+    <input type="text" id="supplyPostTitle" name="supplyPostTitle" placeholder="Title">
+    <br>
+    <br>
+    <p>Description (specifications for what supplies you need, how many, when, etc.)</p>
+    <textarea rows="6" cols="50" id="supplyPostDescription" name="supplyPostDescription"></textarea>
+    <br>
+    <br>
+    <p>Your Email</p>
+    <input type="text" id="supplyPostEmail" name="supplyPostEmail" >
+    <br>
+    <br>
+    <p>Phone Number (optional)</p>
+    <input type="text" id="supplyPostPhone" name="supplyPostPhone">
+    <button onclick="send_supply()" class="btn btn-primary">Submit</button>
+    `
   } else if(dropdown.value == "question") {
     console.log("no");
-    //Insert question HTML
+    document.getElementById("formthing").innerHTML = `
+    <p>Post Title (summarize your question)</p>
+    <input type="text" id="questionPostTitle" name="questionPostTitle" placeholder="Title">
+    <br>
+    <br>
+    <p>Description (Elaborate on your question, tell us exactly what you need to know)</p>
+    <textarea rows="6" cols="50" id="questionPostDescription" name="questionPostDescription"></textarea>
+    <br>
+    <br>
+    <button onclick="send_supply()" class="btn btn-primary">Submit</button>
+    `
   }
 }
 
@@ -87,4 +113,20 @@ function send_tutor() {
   var phone = document.getElementById('tutorPostPhone').value
   var subject = document.getElementById('tutorPostSubject').value
   location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&fee=" + fee + "&email=" + email + "&phone=" + phone + "&subject=   " + subject
+}
+
+function send_supply() {
+  var type = dropdown.value
+  var title = document.getElementById("supplyPostTitle").value
+  var description = document.getElementById("supplyPostDescription").value
+  var email = document.getElementById('supplyPostEmail').value
+  var phone = document.getElementById('supplyPostPhone').value
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&email=" + email + "&phone=" + phone
+}
+
+function send_question() {
+  var type = dropdown.value
+  var title = document.getElementById("questionPostTitle").value
+  var description = document.getElementById('questionPostDescription').value
+  location.href = "/subimtpost?type=" + type + "&title=" + title + "&description=" + description
 }
