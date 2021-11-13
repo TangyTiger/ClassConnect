@@ -145,7 +145,12 @@ function send_question() {
          document.getElementById("column2").innerHTML = `
          <h1>` + window._title + `</h1>
          <br>
-         <p>` + window._description + `
+         <p>` + window._description + `</p>
+         <br>
+         <p>Fee: $` + window._fee + ` per hour</p>
+         `
+         document.getElementById("contactInfo").innerHTML = `<br>
+            <p style="color: white">Email: ` + window._email + `<br><br>Phone Number: ` + window._phone + `</p>
          `
      }
    })

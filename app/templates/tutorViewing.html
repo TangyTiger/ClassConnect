@@ -12,12 +12,16 @@
     <script src="/static/scripts.js"></script>
     <style>
       #column1, #contactInfo {
-        background: lightgrey;
+        background: #454b51;
         border-right: 2px solid grey;
         border-left: 2px solid grey;
         height: calc(100vh - 80px);
       }
       #column2 {
+      }
+
+      .tutorPosts {
+      display: block;
       }
     </style>
 </head>
@@ -44,9 +48,9 @@
       </ul>
     </nav>
   <div class="row w-100 m-0">
-  <div id = "column1" class="col-2" style = "overflow: auto">
+  <div id = "column1" class="col-2 p-0" style = "overflow: auto">
     {% for post in tutorPosts%}
-    <div class = "tutorPosts" id="{{post.id}}" onclick = "viewTutorPost(this.id)">
+    <div class = "tutorPosts p-2 m-2 btn btn-outline-danger" id="{{post.id}}" onclick = "viewTutorPost(this.id)">
       {{post["title"]}}
     </div>
     {% endfor%}

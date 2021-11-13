@@ -4,7 +4,22 @@ from flask import request, session, jsonify, render_template, redirect
 discussionPosts = [{"title": " who r u", "name": "Sarthak Lodha", "id": 1}]
 schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah", "id": 2}]
 carpoolPosts = []
-tutoringPosts = [{"title": "Math Help", "description": "some stuff here", "id": 3}, {"title": "Science Help", "description": "a description", "id": 4}]
+tutoringPosts = [
+    {
+        "title": "Math Help",
+        "description": "some stuff here",
+        "email": "asdf@gmail.com",
+        "fee": "18",
+        "phone": 1234567890, "id": 3
+    },
+    {
+        "title": "Science Help",
+        "description": "a description",
+        "email": "asdf@gmail.com",
+        "fee": "20",
+        "phone": 1234567890, "id": 4
+    }
+]
 preid = 4
 
 
