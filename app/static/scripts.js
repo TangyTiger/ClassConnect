@@ -171,14 +171,16 @@ function send_question() {
          window._phone = data.phone
          console.log(window._title)
          document.getElementById("column2").innerHTML = `
-         <h1>` + window._title + `</h1>
+         <div>
+         <h1 style="font-size: 50px">` + window._title + `</h1>
          <br>
-         <p>` + window._description + `</p>
+         <p style="font-size: 25px">` + window._description + `</p>
          <br>
-         <p>Fee: $` + window._fee + ` per hour</p>
+         <p style="font-size: 25px">Fee: $` + window._fee + ` per hour</p>
+         </div>
          `
          document.getElementById("contactInfo").innerHTML = `<br>
-            <p style="color: white">Email: ` + window._email + `<br><br>Phone Number: ` + window._phone + `</p>
+            <p style="">Email: <a href="mailto: ` + window._email + `">`+ window._email +`</a><br><br>Phone Number: ` + window._phone + `</p>
          `
      }
    })

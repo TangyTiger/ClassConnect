@@ -15,9 +15,9 @@ tutoringPosts = [
     {
         "title": "Science Help",
         "description": "a description",
-        "email": "asdf@gmail.com",
+        "email": "jdoe@gmail.com",
         "fee": "20",
-        "phone": 1234567890, "id": 4
+        "phone": 1029384756, "id": 4
     }
 ]
 preid = 4

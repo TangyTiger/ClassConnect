@@ -17,7 +17,7 @@
     }
     </style>
 </head>
-<body>
+<body style="overflow: auto;" class="bg-light">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
       <!-- Brand/logo -->
       <a class="navbar-brand" href="/home">
@@ -39,25 +39,25 @@
         </li>
       </ul>
     </nav>
-    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: hidden">
+    <div class="container-fluid bg-light">
         <br>
         <h1 class="ml-2 container-fluid">Discussion <a href = "/viewAllDiscussions"class = "btn btn-primary">View all</a></h1>
         <div class="container-fluid mt-3 w-100 p-3" id="discussion">
             <div class="row">
-                {% for post in discussionPosts %}
+                {% for post in range(6) if not post >= discussionPosts|length %}
                 <div class="col-3 card p-3 post mt-1 mx-2">
-                    <div class="card-header">{{post["title"]}}</div>
+                    <div class="card-header">{{discussionPosts[post]["title"]}}</div>
                     <div class="card-body">
-                        posted by <b>{{post["name"]}}</b>
+                        posted by <b>{{discussionPosts[post]["name"]}}</b>
                         <br>
-                        <a id = "{{post['id']}}" href="/answerQuestions?id={{post['id']}}">reply</a>
+                        <a id = "{{discussionPosts[post]['id']}}" href="/answerQuestions?id={{discussionPosts[post]['id']}}">reply</a>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-    <div class="container-fluid bg-light" style="height: calc(50vh - 40px); overflow: hidden">
+    <div class="container-fluid bg-light">
         <br>
         <h1 class="ml-2 container-fluid">Borrow Supplies <a href = "#"class = "btn btn-primary">View all</a></h1>
         <div class="container-fluid mt-3 w-100 p-3" id="supplies">
