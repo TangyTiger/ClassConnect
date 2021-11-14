@@ -147,3 +147,12 @@ def supplyRespond():
     for i in schoolSupplyPosts:
         if i["id"] == supply:
             return render_template("supplyRespond.html", post=i)
+
+
+@app.route('/sendReply')
+def sendReply():
+    reply = request.args.get("reply")
+    id = request.args.get("id")
+    for i in discussionPosts:
+        if i["id"] == id:
+            i['replies'].append(reply)

@@ -40,9 +40,9 @@
         </li>
       </ul>
     </nav>
-    <form action = "/home.html">
+    <form action = "/home?id={{post['id']}}">
     <label>{{post['title']}}</label> <br><br>
-    <textarea name = "Response" Rows = "4" Cols = "50" placeholder = "Response" id = "responseInput"></textarea>
+    <textarea name = "reply" Rows = "4" Cols = "50" placeholder = "Response" id = "responseInput"></textarea>
     <br><br>
     <input id = "submitResponse" type="submit" value="Submit" onclick="sendEmail()">
 
