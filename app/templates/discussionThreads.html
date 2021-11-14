@@ -47,9 +47,10 @@
     <p>{{reply}}</p>
     {% endfor %}
     <button class="btn btn-dark" onclick = "document.getElementById('response').hidden = false;this.hidden = true">Reply</button>
-    <form>
+    <form action="/sendReply">
     <div id = "response" hidden>
-      <textarea name = "Response" Rows = "4" Cols = "50" placeholder = "Response" id = "responseInput"></textarea>
+      <textarea name = "reply" Rows = "4" Cols = "50" placeholder = "Response" id = "responseInput"></textarea>
+      <input type="hidden" name="id" value="{{post['id']}}">
       <br><br>
       <input id = "submitResponse" type="submit" class="btn btn-danger" value="Submit">
     </div>
