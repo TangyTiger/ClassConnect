@@ -1,1 +1,23 @@
-[]
+[
+     {
+          "description": "What dates are thanksgiving break?",
+          "title": "When does Thanksgiving Break start?",
+          "type": "discussion",
+          "name": "Kanye West",
+          "id": 19,
+          "replies": [
+               "You can look at the calendar at the bottom of the website and it will tell you when.",
+               "It should start on the 24th of November, and run through the weekend."
+          ]
+     },
+     {
+          "description": "",
+          "title": "How long does the half-day last on the 24th?",
+          "type": "discussion",
+          "name": "Jack Sparrow",
+          "id": 20,
+          "replies": [
+               "Till 12:00 Noon"
+          ]
+     }
+]
