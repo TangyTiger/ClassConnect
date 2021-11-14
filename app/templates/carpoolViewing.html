@@ -9,6 +9,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
     <script src="/static/scripts.js"></script>
     <style>
       #column1, #contactInfo {
@@ -51,7 +57,7 @@
   <div class="row w-100 m-0">
   <div id = "column1" class="col-2 p-0" style = "overflow: auto">
     {% for post in tutorPosts%}
-    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: 75px; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewTutorPost(this.id)">
+    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: 75px; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewCarpoolPost(this.id)">
       {{post["title"]}}
     </div>
     {% endfor%}

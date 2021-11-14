@@ -156,3 +156,8 @@ def sendReply():
     for i in discussionPosts:
         if i["id"] == id:
             i['replies'].append(reply)
+
+
+@app.route('/carpoolViewing')
+def viewAllCarpools():
+    return render_template('carpoolViewing.html', tutorPosts=carpoolPosts)
