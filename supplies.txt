@@ -7,5 +7,14 @@
           "id": 17,
           "email": "cj@gmail.com",
           "phone": "6543259844"
+     },
+     {
+          "description": "I ran out of glue and I need some for a school project! Could I use someone elses?",
+          "title": "Ran out of Glue!",
+          "type": "supplies",
+          "name": "Megan Beardall",
+          "id": 18,
+          "email": "beardallmeg@yahoo.com",
+          "phone": "4253487569"
      }
 ]
