@@ -1,42 +1,55 @@
 from app import app
 from flask import request, session, jsonify, render_template, redirect
+import json
 
-discussionPosts = [
-    {"title": " who r u", "name": "Sarthak Lodha", "id": 1, "replies": ["test", "test2"]},
-    {"title": " test num 2", "name": "aditya shah", "id": 2},
-    {"title": "test number 3", "name": "Sarthak Lodha", "id": 3},
-    {"title": " who r u", "name": "Sarthak Lodha", "id": 4}
-]
+# discussionPosts = [
+#     {"title": " who r u", "name": "Sarthak Lodha", "id": 1, "replies": ["test", "test2"]},
+#     {"title": " test num 2", "name": "aditya shah", "id": 2},
+#     {"title": "test number 3", "name": "Sarthak Lodha", "id": 3},
+#     {"title": " who r u", "name": "Sarthak Lodha", "id": 4}
+# ]
+#
+# schoolSupplyPosts = [
+#     {
+#         "title": "Need screwdriver",
+#         "description": "jioadfjilo jioad aoegjg oszh h a;ofiui t paiwfr hioas",
+#         "name": "Aditya Shah",
+#         "id": 5,
+#         "email": "adityashah@adityashah.com",
+#         "phone": 1028561933
+#     }
+# ]
+# carpoolPosts = []
+# tutoringPosts = [
+#     {
+#         "title": "Math Help",
+#         "description": "some stuff here",
+#         "email": "asdf@gmail.com",
+#         "fee": "18",
+#         "phone": 1234567890, "id": 6,
+#         "subject": "math"
+#     },
+#     {
+#         "title": "Science Help",
+#         "description": "a description",
+#         "email": "jdoe@gmail.com",
+#         "fee": "20",
+#         "phone": 1029384756, "id": 7,
+#         "subject": "science"
+#     }
+# ]
 
-schoolSupplyPosts = [
-    {
-        "title": "Need screwdriver",
-        "description": "jioadfjilo jioad aoegjg oszh h a;ofiui t paiwfr hioas",
-        "name": "Aditya Shah",
-        "id": 5,
-        "email": "adityashah@adityashah.com",
-        "phone": 1028561933
-    }
-]
-carpoolPosts = []
-tutoringPosts = [
-    {
-        "title": "Math Help",
-        "description": "some stuff here",
-        "email": "asdf@gmail.com",
-        "fee": "18",
-        "phone": 1234567890, "id": 6,
-        "subject": "math"
-    },
-    {
-        "title": "Science Help",
-        "description": "a description",
-        "email": "jdoe@gmail.com",
-        "fee": "20",
-        "phone": 1029384756, "id": 7,
-        "subject": "science"
-    }
-]
+
+with open('carpool.txt') as f:
+    carpoolPosts = json.load(f)
+with open('discussion.txt') as f:
+    discussionPosts = json.load(f)
+with open('tutor.txt') as f:
+    tutoringPosts = json.load(f)
+with open('supplies.txt') as f:
+  schoolSupplyPosts = json.load(f)
+
+
 preid = 7
 
 
@@ -185,3 +198,15 @@ def viewAllCarpools():
         if i["subject"] == subject:
             filteredSubjects.append(i)
     return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)
+
+@app.route('/save')
+def save():
+    with open('discussion.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(discussionPosts))
+    with open('carpool.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(carpoolPosts))
+    with open('tutor.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(tutoringPosts))
+    with open('supplies.txt', 'w') as convert_file:
+        convert_file.write(json.dumps(schoolSupplyPosts))
+    return render_template('home.html')
