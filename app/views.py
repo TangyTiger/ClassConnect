@@ -183,3 +183,14 @@ def viewAllCarpools():
         if i["subject"] == subject:
             filteredSubjects.append(i)
     return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)
+
+@app.route('/calendar')
+def calendar():
+
+    #  Get the calendar data
+    _calendar = make_calendar()
+
+    #  turn calendar data into a response
+    response = make_response(_calendar)
+    response.headers["Content-Disposition"] = "attachment; filename=EHSCalender.ics"
+    return response
