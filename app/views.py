@@ -1,8 +1,14 @@
 from app import app
 from flask import request, session, jsonify, render_template, redirect
 
-discussionPosts = [{"title": " who r u", "name": "Sarthak Lodha", "id": 1},{"title": " test num 2", "name": "aditya shah", "id": 2},{"title": "test number 3", "name": "Sarthak Lodha", "id": 1},{"title": " who r u", "name": "Sarthak Lodha", "id": 4}]
-schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah", "id": 2}]
+discussionPosts = [
+    {"title": " who r u", "name": "Sarthak Lodha", "id": 1, "replies": ["test", "test2"]},
+    {"title": " test num 2", "name": "aditya shah", "id": 2},
+    {"title": "test number 3", "name": "Sarthak Lodha", "id": 3},
+    {"title": " who r u", "name": "Sarthak Lodha", "id": 4}
+]
+
+schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah", "id": 5}]
 carpoolPosts = []
 tutoringPosts = [
     {
@@ -10,17 +16,17 @@ tutoringPosts = [
         "description": "some stuff here",
         "email": "asdf@gmail.com",
         "fee": "18",
-        "phone": 1234567890, "id": 3
+        "phone": 1234567890, "id": 6
     },
     {
         "title": "Science Help",
         "description": "a description",
         "email": "jdoe@gmail.com",
         "fee": "20",
-        "phone": 1029384756, "id": 4
+        "phone": 1029384756, "id": 7
     }
 ]
-preid = 4
+preid = 7
 
 
 @app.route('/post', methods=['GET'])
@@ -98,6 +104,7 @@ def viewtutorslist():
         filteredSubjects.append(i)
     return render_template("tutorViewing.html", tutorPosts=filteredSubjects)
 
+
 @app.route('/getTutorPost')
 def getTutorPost():
     data = int(request.args.get("id"))
@@ -106,6 +113,7 @@ def getTutorPost():
         if i["id"] == data:
             return jsonify(i)
 
+
 @app.route('/getCarpoolPost')
 def getCarpoolPost():
     data = int(request.args.get("id"))
@@ -113,26 +121,38 @@ def getCarpoolPost():
         if i["id"] == data:
             return jsonify(i)
 
-@app.route('/answerQuestions')
+
+@app.route('/discussionsThread')
 def answerQuestions():
     question = int(request.args["id"])
     for i in discussionPosts:
         print(question)
         if i["id"] == question:
-            return render_template("answerQuestions.html", post=i)
+            return render_template("discussionThreads.html", post=i)
+
 
 @app.route('/viewAllDiscussions')
 def viewAllDiscussion():
-    return render_template("viewAllDiscussions.html", discussionPosts = discussionPosts)
+    return render_template("viewAllDiscussions.html", discussionPosts=discussionPosts)
 
 
 @app.route('/viewAllSupplies')
 def viewAllSupplies():
-    return render_template("viewAllSupplies.html", supplies = schoolSupplyPosts)
+    return render_template("viewAllSupplies.html", supplies=schoolSupplyPosts)
+
 
 @app.route('/supplyRespond')
 def supplyRespond():
     supply = int(request.args.get("id"))
     for i in schoolSupplyPosts:
         if i["id"] == supply:
-            return render_template("supplyRespond.html", post = i)
+            return render_template("supplyRespond.html", post=i)
+
+
+@app.route('/sendReply')
+def sendReply():
+    reply = request.args.get("reply")
+    id = request.args.get("id")
+    for i in discussionPosts:
+        if i["id"] == id:
+            i['replies'].append(reply)
