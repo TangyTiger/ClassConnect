@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/fullPage.js-master/src/fullPage.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="static/fullPage.js-master/vendors/easings.min.js"></script>
+    <script type="text/javascript" src="static/fullPage.js-master/src/fullPage.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/scripts.js"></script>
+  <script type="text/javascript">
+          $(document).ready(function() {
+              $('#fullpage').fullpage({
+                  sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
+              });
+          });
+      </script>
+
+      <style>
+          .section{
+              font-size: 6em;
+              text-align: center;
+          }
+      </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark w-100" style="height:80px;position:absolute;z-index:5">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="/home">
+        <img src="/static/logo.png" alt="logo" width="60px">
+      </a>
+
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link mx-4" href="/viewTutorsSubjects" style="font-size: 20px;">Find a Tutor</a>
+        </li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="/viewCarpoolSubjects" style="font-size: 20px;">Find a Carpool</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto mr-4">
+        <li class="nav-item p-0">
+            <a class="nav-link btn btn-danger m-0" href="/post" style="border-radius: 50%; font-size: 30px; width: 55px; height: 55px; padding: 0px">+</a>
+        </li>
+      </ul>
+    </nav>
+  <div id="fullpage">
+      <div class="section">
+        {% for post in discussionPosts %}
+        <div class = "slide">
+          {{post["title"]}}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+</body>
+</html>
