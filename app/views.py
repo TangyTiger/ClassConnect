@@ -150,7 +150,7 @@ def answerQuestions():
 
 @app.route('/viewAllDiscussions')
 def viewAllDiscussion():
-    return render_template("fullScreenDiscussion.html", discussionPosts=discussionPosts)
+    return render_template("viewAllDiscussions.html", discussionPosts=discussionPosts)
 
 
 @app.route('/viewAllSupplies')
@@ -169,10 +169,11 @@ def supplyRespond():
 @app.route('/sendReply')
 def sendReply():
     reply = request.args.get("reply")
-    id = request.args.get("id")
+    id = int(request.args.get("id"))
     for i in discussionPosts:
         if i["id"] == id:
             i['replies'].insert(0, reply)
+            return redirect("/discussionsThread?id=" + str(id))
 
 
 @app.route('/carpoolViewing')
@@ -183,4 +184,3 @@ def viewAllCarpools():
         if i["subject"] == subject:
             filteredSubjects.append(i)
     return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)
-
