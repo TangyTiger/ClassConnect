@@ -59,6 +59,9 @@ def signinpg():
 def homepg():
     return render_template('home.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
 
+@app.route('/fullScreenHome')
+def fullscrnhomepg():
+    return render_template('fullScreenHome.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
 
 @app.route('/submitpost')
 def submitpost():
