@@ -57,7 +57,7 @@
   <div class="row w-100 m-0">
   <div id = "column1" class="col-2 p-0" style = "overflow: auto">
     {% for post in tutorPosts%}
-    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: 75px; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewCarpoolPost(this.id)">
+    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: auto; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewCarpoolPost(this.id)">
       {{post["title"]}}
     </div>
     {% endfor%}
