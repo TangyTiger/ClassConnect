@@ -1,23 +1,33 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <script type="text/javascript" src="/static/scripts.js"></script>
+<head>
+
+    <title>View Carpools</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/static/scripts.js"></script>
+    <style>
+      #column1, #contactInfo {
+        background: #d0d0df;
+        border-right: 2px solid grey;
+        border-left: 2px solid grey;
+        height: calc(100vh - 80px);
+      }
+      #column2 {
+        background: f0f011;
+      }
 
-<style>
-  .post{
-    display : inline-block;
-    width: 20%;
-  }
-  </style>
-    <title>Answer Questions</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
+      .tutorPosts {
+      display: block;
+      }
+    </style>
+</head>
+<body class="p-0">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px;">
       <!-- Brand/logo -->
       <a class="navbar-brand" href="/home">
         <img src="/static/logo.png" alt="logo" width="60px">
@@ -38,17 +48,19 @@
         </li>
       </ul>
     </nav>
+  <div class="row w-100 m-0">
+  <div id = "column1" class="col-2 p-0" style = "overflow: auto">
+    {% for post in tutorPosts%}
+    <div class = "tutorPosts p-3 m-2 btn btn-danger"  style="font-size: 20px; line-height: 75px; vertical-align: middle; overflow: auto" id="{{post.id}}" onclick = "viewTutorPost(this.id)">
+      {{post["title"]}}
+    </div>
+    {% endfor%}
+  </div>
+  <div class="col-8 p-3" id = "column2" style = "overflow: auto">
 
-      <div style = 'text-align: center'>
-          {% for post in discussionPosts %}
-          <div class="col-3 card p-3 post m-4">
-              <div class="card-header">{{post["title"]}}</div>
-              <div class="card-body">
-                  posted by <b>{{post["name"]}}</b>
-                  <br>
-                  <a id = "{{post['id']}}" href="/discussionsThread?id={{post['id']}}">reply</a>
-              </div>
-          </div>
-          {% endfor %}
-      </div>
-    </body>
+  </div>
+  <div class="col-2" id = "contactInfo" style = "overflow: auto">
+
+  </div>
+  </div>
+</body>

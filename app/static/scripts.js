@@ -42,7 +42,7 @@ function submit() {
     <br>
     <p>Phone Number (optional)</p>
     <input type = "text" id = "carpoolPostPhone" name = "carpoolPostPhone">
-    <button onclick="send_carpool()" class="btn btn-primary">Submit</button>    `
+    <button onclick="send_carpool()" class="btn btn-danger">Submit</button>    `
     mymap = L.map('map').setView([47.61341768915884, -122.03149390175979], 13);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -65,13 +65,13 @@ function submit() {
     <br>
     <br>
     <p>What subject are you teaching?</p>
-    <select class="btn btn-primary" id = "tutorPostSubject" name = "tutorPostSubject">
-      <option value="english">English</option>
-      <option value="science">Science</option>
-      <option value="math">Math</option>
-      <option value="ss">Social Studies</option>
-      <option value="cs">Computer Science</option>
-      <option value="wl">World Language</option>
+    <select class="btn btn-danger" id = "tutorPostSubject" name = "tutorPostSubject">
+      <option value="English">English</option>
+      <option value="Science">Science</option>
+      <option value="Math">Math</option>
+      <option value="Social Studies">Social Studies</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="World Languages">World Language</option>
     </select>
     <br><br>
     <p>Your Fee Per Hour</p>
@@ -84,7 +84,7 @@ function submit() {
 
     <p>Phone Number (optional)</p>
     <input type = "text" id = "tutorPostPhone" name = "tutorPostPhone">
-    <button onclick="send_tutor()" class="btn btn-primary">Submit</button>
+    <button onclick="send_tutor()" class="btn btn-danger">Submit</button>
     `
   } else if(dropdown.value == "supplies") {
     console.log("yes");
@@ -103,9 +103,9 @@ function submit() {
     <br>
     <p>Phone Number (optional)</p>
     <input type="text" id="supplyPostPhone" name="supplyPostPhone">
-    <button onclick="send_supply()" class="btn btn-primary">Submit</button>
+    <button onclick="send_supply()" class="btn btn-danger">Submit</button>
     `
-  } else if(dropdown.value == "question") {
+  } else if(dropdown.value == "discussion") {
     console.log("no");
     document.getElementById("formthing").innerHTML = `
     <p>Post Title (summarize your question)</p>
@@ -116,7 +116,7 @@ function submit() {
     <textarea rows="6" cols="50" id="questionPostDescription" name="questionPostDescription"></textarea>
     <br>
     <br>
-    <button onclick="send_supply()" class="btn btn-primary">Submit</button>
+    <button onclick="send_supply()" class="btn btn-danger">Submit</button>
     `
   }
 }
