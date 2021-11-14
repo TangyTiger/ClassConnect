@@ -40,16 +40,18 @@
         </li>
       </ul>
     </nav>
-    <div class="m-3"><p>{{post['title']}}</p> <br><br>
+    <div class="m-3">
+      <h1>{{post['title']}}</h1> <p>Posted by {{post['name']}}</p><br><br>
+      <p><b>Replies:</b></p>
     {% for reply in post["replies"] %}
     <p>{{reply}}</p>
     {% endfor %}
-    <button onclick = "document.getElementById('response').hidden = false;this.hidden = true">Reply</button>
-    <form action = "/home.html">
+    <button class="btn btn-dark" onclick = "document.getElementById('response').hidden = false;this.hidden = true">Reply</button>
+    <form>
     <div id = "response" hidden>
       <textarea name = "Response" Rows = "4" Cols = "50" placeholder = "Response" id = "responseInput"></textarea>
       <br><br>
-      <input id = "submitResponse" type="submit" value="Submit">
+      <input id = "submitResponse" type="submit" class="btn btn-danger" value="Submit">
     </div>
   </form></div>
   </body>
