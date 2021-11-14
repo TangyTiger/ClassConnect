@@ -85,12 +85,13 @@
 
     </div>
     <div class="section">
-      <a class="btn btn-danger" href="/viewAllSupplies" style="margin-top: 90px;margin-left: 10px;">View All</a>
+
       {% for post in range(5) if not post >= supplyPosts|length %}
       <div class = "slide" style="text-align: center"><div class="header">{{supplyPosts[post]["title"]}}</div><p style="text-align:center">Posted by {{supplyPosts[post]["name"]}}</p>
       <b>Contact Information</b><br>
       <p>Email: {{supplyPosts[post]['email']}}</p>
       <p>Phone: {{supplyPosts[post]['phone']}}</p>
+      <a class="btn btn-danger" href="/viewAllSupplies" style="margin-top: 90px;display: inline-block; margin-left: 10px;z-index: 10;">View All Requests</a>
 </div>
       {% endfor %}
 
