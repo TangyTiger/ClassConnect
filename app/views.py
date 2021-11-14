@@ -48,9 +48,10 @@ with open('tutor.txt') as f:
     tutoringPosts = json.load(f)
 with open('supplies.txt') as f:
   schoolSupplyPosts = json.load(f)
+with open('ids.txt') as f:
+   ids = json.load(f)
 
-
-preid = 7
+preid = ids['preid']
 
 
 @app.route('/post', methods=['GET'])
@@ -204,11 +205,13 @@ def viewAllCarpools():
 @app.route('/save')
 def save():
     with open('discussion.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(discussionPosts))
+        convert_file.write(json.dumps(discussionPosts, indent=5))
     with open('carpool.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(carpoolPosts))
+        convert_file.write(json.dumps(carpoolPosts, indent=5))
     with open('tutor.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(tutoringPosts))
+        convert_file.write(json.dumps(tutoringPosts, indent=5))
     with open('supplies.txt', 'w') as convert_file:
-        convert_file.write(json.dumps(schoolSupplyPosts))
+        convert_file.write(json.dumps(schoolSupplyPosts, indent=5))
+    with open('ids.txt', 'w') as convert_file:
+        convert_file.write(json.dumps({'preid': preid}, indent=5))
     return render_template('home.html')
