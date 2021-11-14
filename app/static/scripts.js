@@ -106,6 +106,11 @@ function submit() {
     <textarea rows="6" cols="50" id="supplyPostDescription" name="supplyPostDescription"></textarea>
     <br>
     <br>
+    <p>Your Name</p>
+    <input type="text" id="supplyPostName" name="supplyPostName" >
+    <br>
+    <br>
+
     <p>Your Email</p>
     <input type="text" id="supplyPostEmail" name="supplyPostEmail" >
     <br>
