@@ -12,15 +12,26 @@
   <script type="text/javascript">
           $(document).ready(function() {
               $('#fullpage').fullpage({
-                  sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
+                  sectionsColor: ['#ffd0d0', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
               });
           });
       </script>
 
       <style>
-          .section{
+          .section {
               font-size: 6em;
               text-align: center;
+          }
+          hr {
+            margin-left: 100px;
+            margin-right: 100px;
+          }
+
+          #welcomeScreen {
+            background-size: cover;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/static/thepack.jpg);
+            background-position: center;
+            color: white;
           }
       </style>
 </head>
@@ -48,7 +59,7 @@
       </ul>
     </nav>
   <div id="fullpage">
-    <div class="section">Section 1</div>
+    <div class="section" id="welcomeScreen">Welcome to ClassConnect <hr><a class="btn btn-danger btn-lg">Find a Tutor</a> <a class="btn btn-danger btn-lg">Find a Carpool</a> <a class="btn btn-danger btn-lg">Post Something</a></div>
     <div class="section">
       <div class = "slide">Section 2 Slide 1</div>
       <div class = "slide">Section 2 Slide 2</div>
