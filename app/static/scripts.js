@@ -105,7 +105,7 @@ function submit() {
     <input type="text" id="supplyPostPhone" name="supplyPostPhone">
     <button onclick="send_supply()" class="btn btn-primary">Submit</button>
     `
-  } else if(dropdown.value == "question") {
+  } else if(dropdown.value == "discussion") {
     console.log("no");
     document.getElementById("formthing").innerHTML = `
     <p>Post Title (summarize your question)</p>
