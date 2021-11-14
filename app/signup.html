@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign up for SchoolService</title>
+    <script src=
+      "https://smtpjs.com/v3/smtp.js">
+    </script>
+
+<!--
+    <script type="text/javascript">
+      function sendEmail() {
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "shahaditya@outlook.com",
+          Password: "",
+          To: document.getElementById("email").value,
+          From: "shahaditya@outlook.com",
+          Subject: "Welcome to SchoolService",
+          Body: "Welcome!",
+        })
+          .then(function (message) {
+            alert("mail sent successfully")
+          });
+      }
+    </script>
+  -->
+  </head>
+  <body>
+    <h1>Welcome to School Service</h1>
+  <form  action="/home.html">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" placeholder="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" placeholder="Doe"><br>
+  <label for="email">Email:</label><br>
+  <input type = "text" id = "email" name = "lname" placeholder="jdoe@lwsd.org"><br>
+  <label for="password">Password:</label><br>
+  <input type = "password" id = "password" name = "password" placeholder="password"><br>
+  <label for="zipcode">Zip code: </label><br>
+  <input type = "text" id = "zip" name = "zipcode" placeholder = "11111"><br><br>
+  <input type="submit" value="Submit" onclick="sendEmail()">
+
+
+</form>
+
+  </body>
+</html>
