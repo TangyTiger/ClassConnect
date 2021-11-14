@@ -111,6 +111,8 @@ def submitpost():
         post["phone"] = form.get("phone")
         schoolSupplyPosts.append(post)
     if post["type"] == "discussion":
+        post["name"] = form.get("name")
+        post["replies"] = []
         discussionPosts.append(post)
     print(post)
     return redirect("/home")

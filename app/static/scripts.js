@@ -130,7 +130,12 @@ function submit() {
     <textarea rows="6" cols="50" id="questionPostDescription" name="questionPostDescription"></textarea>
     <br>
     <br>
-    <button onclick="send_supply()" class="btn btn-danger">Submit</button>
+    <input type="text" id="questionPostName" name="questionPostName" placeholder="John Doe">
+    <br>
+    <br>
+    <button onclick="send_question()" class="btn btn-danger">Submit</button>
+
+
     `
   }
 }
@@ -160,18 +165,21 @@ function send_tutor() {
 
 function send_supply() {
   var type = dropdown.value
+  console.log(document.getElementById("supplyPostTitle"))
   var title = document.getElementById("supplyPostTitle").value
   var description = document.getElementById("supplyPostDescription").value
   var email = document.getElementById('supplyPostEmail').value
   var phone = document.getElementById('supplyPostPhone').value
-  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&email=" + email + "&phone=" + phone
+  var name = document.getElementById('supplyPostName').value
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&email=" + email + "&phone=" + phone + "&name=" + name
 }
 
 function send_question() {
   var type = dropdown.value
   var title = document.getElementById("questionPostTitle").value
   var description = document.getElementById('questionPostDescription').value
-  location.href = "/subimtpost?type=" + type + "&title=" + title + "&description=" + description
+  var name = document.getElementById('questionPostName').value
+  location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name
 }
 
  function viewTutorPost(data) {
