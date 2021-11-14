@@ -59,8 +59,8 @@ def submitpost():
         post["name"] = form.get("name")
         post["phone"] = form.get("phone")
         post["email"] = form.get("email")
-        post['lat'] = form.get['lat']
-        post['lng'] = form.get['lng' ]
+        post['lat'] = form.get('lat')
+        post['lng'] = form.get('lng')
         carpoolPosts.append(post)
         print(carpoolPosts)
     if post["type"] == "tutor":
