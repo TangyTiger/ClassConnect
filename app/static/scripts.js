@@ -66,12 +66,12 @@ function submit() {
     <br>
     <p>What subject are you teaching?</p>
     <select class="btn btn-primary" id = "tutorPostSubject" name = "tutorPostSubject">
-      <option value="English">English</option>
-      <option value="Science">Science</option>
-      <option value="Math">Math</option>
-      <option value="Social Studies">Social Studies</option>
-      <option value="Computer Science">Computer Science</option>
-      <option value="World Languages">World Language</option>
+      <option value="english">English</option>
+      <option value="science">Science</option>
+      <option value="math">Math</option>
+      <option value="ss">Social Studies</option>
+      <option value="cs">Computer Science</option>
+      <option value="wl">World Language</option>
     </select>
     <br><br>
     <p>Your Fee Per Hour</p>

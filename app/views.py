@@ -16,14 +16,16 @@ tutoringPosts = [
         "description": "some stuff here",
         "email": "asdf@gmail.com",
         "fee": "18",
-        "phone": 1234567890, "id": 6
+        "phone": 1234567890, "id": 6,
+        "subject": "math"
     },
     {
         "title": "Science Help",
         "description": "a description",
         "email": "jdoe@gmail.com",
         "fee": "20",
-        "phone": 1029384756, "id": 7
+        "phone": 1029384756, "id": 7,
+        "subject": "science"
     }
 ]
 preid = 7
@@ -101,7 +103,8 @@ def viewtutorslist():
     subject = request.args.get("subject")
     filteredSubjects = []
     for i in tutoringPosts:
-        filteredSubjects.append(i)
+        if i["subject"] == subject:
+            filteredSubjects.append(i)
     return render_template("tutorViewing.html", tutorPosts=filteredSubjects)
 
 
@@ -155,4 +158,4 @@ def sendReply():
     id = request.args.get("id")
     for i in discussionPosts:
         if i["id"] == id:
-            i['replies'].append(reply)
+            i['replies'].insert(0, reply)
