@@ -93,6 +93,7 @@ def submitpost():
         tutoringPosts.append(post)
         print(tutoringPosts)
     if post["type"] == "supplies":
+        post["name"] = form.get("name")
         post["email"] = form.get("email")
         post["phone"] = form.get("phone")
         schoolSupplyPosts.append(post)
