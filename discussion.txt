@@ -6,6 +6,7 @@
           "name": "Kanye West",
           "id": 19,
           "replies": [
+               "yep\r\n",
                "You can look at the calendar at the bottom of the website and it will tell you when.",
                "It should start on the 24th of November, and run through the weekend."
           ]
@@ -19,5 +20,23 @@
           "replies": [
                "Till 12:00 Noon"
           ]
+     },
+     {
+          "description": "How many hours is school on wednesdays?",
+          "title": "How long is school on wednesdays?",
+          "type": "discussion",
+          "name": "John Doe",
+          "id": 21,
+          "replies": [
+               "School lasts till noon"
+          ]
+     },
+     {
+          "description": "How long is school on wednesdays?",
+          "title": "How long is school on wednesdays?",
+          "type": "discussion",
+          "name": "John Doe",
+          "id": 22,
+          "replies": []
      }
 ]

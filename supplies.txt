@@ -16,5 +16,14 @@
           "id": 18,
           "email": "beardallmeg@yahoo.com",
           "phone": "4253487569"
+     },
+     {
+          "description": "A compass for my Geometry class will need for 2 weeks",
+          "title": "Ask for a compass",
+          "type": "supplies",
+          "name": "John Doe",
+          "id": 25,
+          "email": "jdoe@lwsd.org",
+          "phone": "4033055053"
      }
 ]

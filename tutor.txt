@@ -1,21 +1,10 @@
 [
      {
-          "description": "Hello I am Bruno Mars and I have gotten an A in both honors Biology and AP Enviornmental Science. I am a Junior in Highschool ",
-          "title": "Help with Biology - Bruno Mars",
-          "type": "tutor",
-          "name": null,
-          "id": 8,
-          "email": "mars@outlook.com",
-          "fee": "20",
-          "subject": "science",
-          "phone": "4329394294"
-     },
-     {
           "description": "I have completed the math pathway and a senior. I have gotten an A in every class and going to Carnegie for mathematics. I can teach any math class people need help in. ",
           "title": "help with math - jeffery",
           "type": "tutor",
           "name": null,
-          "id": 5,
+          "id": 8,
           "email": "jeffery@math.com",
           "fee": "20",
           "subject": "math",
@@ -42,5 +31,27 @@
           "fee": "0",
           "subject": "english",
           "phone": "2839482738"
+     },
+     {
+          "description": "I will teach Math",
+          "title": "Math Tutor",
+          "type": "tutor",
+          "name": null,
+          "id": 23,
+          "email": "test@gmail.com",
+          "fee": "20",
+          "subject": "   Math",
+          "phone": "1324657980"
+     },
+     {
+          "description": "I am Jeff Deer, I will teach math to anyone that is struggling. I am a great teacher, and have experience tutoring already.",
+          "title": "Jeff Deer",
+          "type": "tutor",
+          "name": null,
+          "id": 24,
+          "email": "jdeer@gmail.com",
+          "fee": "20",
+          "subject": "math",
+          "phone": "7458963214"
      }
 ]

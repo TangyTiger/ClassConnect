@@ -13,7 +13,7 @@
      },
      {
           "description": "I can take some kids to RHS for the basketball game against the Mustangs later tonight. I have space for 3 kids, and I will pick them up at EHS at 6:00 PM. Go Wolves!",
-          "title": "Carpool to Basketball Game @RHS",
+          "title": "carpool to practice at easltake",
           "type": "carpool",
           "name": "Stephanie Clarke",
           "id": 9,
