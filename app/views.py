@@ -63,6 +63,7 @@ def homepg():
 def fullscrnhomepg():
     return render_template('fullScreenHome.html', discussionPosts=discussionPosts, supplyPosts=schoolSupplyPosts)
 
+
 @app.route('/submitpost')
 def submitpost():
     global preid
@@ -168,11 +169,10 @@ def supplyRespond():
 @app.route('/sendReply')
 def sendReply():
     reply = request.args.get("reply")
-    id = int(request.args.get("id"))
+    id = request.args.get("id")
     for i in discussionPosts:
         if i["id"] == id:
             i['replies'].insert(0, reply)
-    return redirect("/discussionsThread?id=" + str(id))
 
 
 @app.route('/carpoolViewing')
