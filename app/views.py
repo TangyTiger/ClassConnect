@@ -8,7 +8,16 @@ discussionPosts = [
     {"title": " who r u", "name": "Sarthak Lodha", "id": 4}
 ]
 
-schoolSupplyPosts = [{"title": "Need screwdriver", "name": "Aditya Shah", "id": 5}]
+schoolSupplyPosts = [
+    {
+        "title": "Need screwdriver",
+        "description": "jioadfjilo jioad aoegjg oszh h a;ofiui t paiwfr hioas",
+        "name": "Aditya Shah",
+        "id": 5,
+        "email": "adityashah@adityashah.com",
+        "phone": 1028561933
+    }
+]
 carpoolPosts = []
 tutoringPosts = [
     {
