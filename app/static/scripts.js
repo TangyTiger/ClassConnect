@@ -33,6 +33,15 @@ function submit() {
     <br>
     <p>Your Pickup Range (click on your general area)</p>
     <div id="map" style="height:300px; width:300px"></div>
+    <br>
+    <select id="subject" name="subject" class="btn btn-danger">
+      <option value="basketball">Basketball</option>
+      <option value="mun">Model UN</option>
+      <option value="deca">DECA</option>
+      <option value="soccer">Soccer</option>
+      <option value="track">Track</option>
+      <option value="swimming">Swimming</option>
+    </select>
     <p>Your Name</p>
     <input type = "text" id = "carpoolPostName" name = "carpoolPostName"><br>
     <br>
@@ -128,7 +137,8 @@ function send_carpool() {
     var name = document.getElementById("carpoolPostName").value
     var email = document.getElementById("carpoolPostEmail").value
     var phone = document.getElementById("carpoolPostPhone").value
-    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone + "&lat=" + lat + "&lng=" + lng
+    var subject = document.getElementById('subject').value
+    location.href = "/submitpost?type=" + type + "&title=" + title + "&description=" + description + "&name=" + name + "&email=" + email + "&phone=" + phone + "&lat=" + lat + "&lng=" + lng + "&subject=" + subject
 
 }
 

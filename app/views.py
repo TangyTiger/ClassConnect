@@ -69,6 +69,7 @@ def submitpost():
         post["email"] = form.get("email")
         post['lat'] = form.get('lat')
         post['lng'] = form.get('lng')
+        post['subject'] = form.get('subject')
         carpoolPosts.append(post)
         print(carpoolPosts)
     if post["type"] == "tutor":
@@ -163,4 +164,9 @@ def sendReply():
 
 @app.route('/carpoolViewing')
 def viewAllCarpools():
-    return render_template('carpoolViewing.html', tutorPosts=carpoolPosts)
+    subject = request.args.get("subject")
+    filteredSubjects = []
+    for i in carpoolPosts:
+        if i["subject"] == subject:
+            filteredSubjects.append(i)
+    return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)
