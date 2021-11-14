@@ -150,7 +150,7 @@ def answerQuestions():
 
 @app.route('/viewAllDiscussions')
 def viewAllDiscussion():
-    return render_template("viewAllDiscussions.html", discussionPosts=discussionPosts)
+    return render_template("fullScreenDiscussion.html", discussionPosts=discussionPosts)
 
 
 @app.route('/viewAllSupplies')
@@ -184,13 +184,3 @@ def viewAllCarpools():
             filteredSubjects.append(i)
     return render_template('carpoolViewing.html', tutorPosts=filteredSubjects)
 
-@app.route('/calendar')
-def calendar():
-
-    #  Get the calendar data
-    _calendar = make_calendar()
-
-    #  turn calendar data into a response
-    response = make_response(_calendar)
-    response.headers["Content-Disposition"] = "attachment; filename=EHSCalender.ics"
-    return response
